@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>ブログの名前</title>
+        <title>ブログ再編集</title>
         <link rel="stylesheet" href="/index.css">
         <!-- CSS only -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     </head>
     <body>
-        <h2 class="text-center">ブログの名前</h2>
+        <h2 class="text-center">ブログ再編集</h2>
         <div class="container">
         <form method="POST" action="/posts/{{ $post->id }}">
             @csrf
