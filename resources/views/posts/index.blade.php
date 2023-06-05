@@ -12,9 +12,9 @@
 	    <div class="text-white">
     	@foreach ($posts as $post)
 	    <div class="card m-5">
-	    	<h4 class="text-center card-header">{{$post->title}}</h4>
+	    	<h4 class="text-center card-header text-dark">{{$post->title}}</h4>
 	    	<div class="card-body">
-	            <p class="card-text">{{$post->body}}</p4>
+	            <p class="card-text text-dark">{{$post->body}}</p4>
 	            <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
 	            <div class="row">
 	                <div class="col-2">
