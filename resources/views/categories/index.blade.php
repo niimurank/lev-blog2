@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ブログの名前</title>
-    <link rel="stylesheet" href="/index.css">
+    <title>カテゴリー別一覧</title>
     <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <head>
 <body>
-    <h2 class="text-center">ブログの名前</h2>
+	<x-app-layout>
+		<x-slot name="header">
+			<h2 class="text-center">カテゴリー別一覧</h2>
+		</x-slot>
     <div class="container">
+	    <div class="">
     	@foreach ($posts as $post)
 	    <div class="card m-5">
 	    	<h4 class="text-center card-header">{{$post->title}}</h4>
@@ -18,32 +21,32 @@
 	            <div class="row">
 	                <div class="col-2">
 	                    <a href="{{ route('posts.edit',[$post->id]) }}">
-	            	        <button type="button" class="btn btn-secondary">編集</button>
+	            	        <button type="button" class="btn btn-secondary-subtle bg-secondary">編集</button>
 	            	    </a>
 	                </div>
 	            	<div class="col-2">
 	            		<form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
 	            			@csrf
 	            		    @method('DELETE')
-	            			<button class="btn btn-danger" type="button" onclick="deletePost({{ $post->id }})">削除</button>
+	            			<button type="button" class="text-dark bg-danger btn btn-danger" onclick="deletePost({{ $post->id }})">削除</button>
 	            		</form>
 	            	</div>
 	                <div class="col text-end">
 	                    <a href="/posts/{{ $post->id}}" class="btn btn-primary">
-	                    <button type="button" class="btn btn-primary">詳細</button>
+	                    	<button type="button" class="btn btn-primary">詳細</button>
 	                    </a>
 	                </div>
 	            </div>
 	        </div>
 	    </div>
 	    @endforeach
+	    {{ Auth::user()->name }}
 	</div>
 	<a href=' {{ route('posts.create') }}'>
-	    <button type="button" class="btn btn-primary">作成</button>
+	    <button type="button" class="btn btn-primary bg-primary">作成</button>
 	</a>
 	<div class="paginate">
 	    {{ $posts->links() }}
-	</div>
     <script>
     function deletePost(id) {
     	'use strict'
@@ -53,5 +56,6 @@
     	}
     }
     </script>
+    </x-app-layout>
 </body>
 </html>
