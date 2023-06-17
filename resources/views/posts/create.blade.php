@@ -35,14 +35,10 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <a href="{{ route('posts.index') }}">
-                                <button type="button" class="bg-primary btn btn-primary">投稿一覧へ戻る</button>
-                            </a>
+                            <a href="{{ route('posts.index') }}" class="btn btn-primary">投稿一覧へ戻る</a>
                         </div>
                         <div class="col text-end">
-                            <a>
-                                <button type="submit" class="bg-success btn btn-success">登録</button>
-                            </a>
+                            <button type="submit" class="bg-success btn btn-success">登録</button>
                         </div>
                     </div>
                 </fieldset>

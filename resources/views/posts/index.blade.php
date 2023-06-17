@@ -4,7 +4,7 @@
     <title>ブログ一覧</title>
     <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<head>
+</head>
 <body>
 	<x-app-layout>
 		<x-slot name="header">
@@ -16,25 +16,23 @@
 	    <div class="card m-5">
 	    	<h4 class="text-center card-header">{{$post->title}}</h4>
 	    	<div class="card-body">
-	            <p class="card-text">{{$post->body}}</p4>
-	            <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
+	            <p class="card-text">{{$post->body}}</p>
+	            <div>
+	            	<p>カテゴリー:<a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a></p>
+	            </div>
 	            <div class="row">
 	                <div class="col-2">
-	                    <a href="{{ route('posts.edit',[$post->id]) }}">
-	            	        <button type="button" class="btn btn-secondary-subtle bg-secondary">編集</button>
-	            	    </a>
+	                    <a href="{{ route('posts.edit',[$post->id]) }}" class="btn btn-secondary">編集</a>
 	                </div>
 	            	<div class="col-2">
 	            		<form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
 	            			@csrf
 	            		    @method('DELETE')
-	            			<button type="button" class="text-dark bg-danger btn btn-danger" onclick="deletePost({{ $post->id }})">削除</button>
+	            			<a class="btn btn-danger" onclick="deletePost({{ $post->id }})">削除</a>
 	            		</form>
 	            	</div>
 	                <div class="col text-end">
-	                    <a href="/posts/{{ $post->id}}" class="btn btn-primary">
-	                    	<button type="button" class="btn btn-primary">詳細</button>
-	                    </a>
+	                    <a href="/posts/{{ $post->id}}" class="btn btn-primary">詳細</a>
 	                </div>
 	            </div>
 	        </div>
@@ -42,9 +40,7 @@
 	    @endforeach
 	    {{ Auth::user()->name }}
 	</div>
-	<a href=' {{ route('posts.create') }}'>
-	    <button type="button" class="btn btn-primary bg-primary">作成</button>
-	</a>
+	<a href=' {{ route('posts.create') }}' class="btn btn-primary">作成</a>
 	<div class="paginate">
 	    {{ $posts->links() }}
 	</div>

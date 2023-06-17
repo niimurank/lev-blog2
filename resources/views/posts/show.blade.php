@@ -15,18 +15,14 @@
                 <div class="card m-5">
                     <h4 class="card-header text-center">{{$post->title}}</h4>
                     <p class="card-body">{{$post->body}}</p>
-                    <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
+                    <p>カテゴリー:<a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a></p>
                 </div>
                 <div class="row">
                     <div class="col text-start">
-                        <a href=" {{ url('/posts') }}">
-                            <button type="button" class="bg-primary btn btn-primary justify-right" >投稿一覧へ戻る</button>
-                        </a>
+                        <a href=" {{ url('/posts') }}" class="btn btn-primary justify-right">投稿一覧へ戻る</a>
                     </div>
                     <div class="col text-end">
-                        <a href=' {{ route('posts.edit' ,[$post->id]) }} '>
-                            <button type="button" class="bg-secondary btn btn-secondary justify-right">編集を行う</button>
-                        </a>
+                        <a href=' {{ route('posts.edit' ,[$post->id]) }}' class="btn btn-secondary justify-right">編集を行う</a>
                     </div>
                 </div>
             </div>

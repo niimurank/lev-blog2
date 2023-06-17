@@ -20,21 +20,17 @@
 	            <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
 	            <div class="row">
 	                <div class="col-2">
-	                    <a href="{{ route('posts.edit',[$post->id]) }}">
-	            	        <button type="button" class="btn btn-secondary-subtle bg-secondary">編集</button>
-	            	    </a>
+	                    <a href="{{ route('posts.edit',[$post->id]) }}" class="btn btn-secondary">編集</a>
 	                </div>
 	            	<div class="col-2">
 	            		<form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
 	            			@csrf
 	            		    @method('DELETE')
-	            			<button type="button" class="text-dark bg-danger btn btn-danger" onclick="deletePost({{ $post->id }})">削除</button>
+	            			<a type="button" class="btn bg-danger" onclick="deletePost({{ $post->id }})">削除</a>
 	            		</form>
 	            	</div>
-	                <div class="col text-end">
-	                    <a href="/posts/{{ $post->id}}" class="btn btn-primary">
-	                    	<button type="button" class="btn btn-primary">詳細</button>
-	                    </a>
+	                <div class="col text-end"> 
+	                    <a href="/posts/{{ $post->id}}" class="btn btn-primary">詳細</a>
 	                </div>
 	            </div>
 	        </div>
