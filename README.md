@@ -1,6 +1,7 @@
-https://nkblogsite.herokuapp.com/login
-テストアカウント：test@test.test
-パスワード：testpassword
+<p>https://nkblogsite.herokuapp.com/login</p>
+<p>テストアカウント：test@test.test</p>
+<p>パスワード：testpassword</p>
+<h2>このリポジトリはHerokuでデプロイするために新規作成サれています。コミット履歴などを見たい場合はlev-blogの方を参照してください。</h2>
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
